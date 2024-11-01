@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "fetch-sboms": "ts-node src/fetch-sboms.ts",
-    "create-excel": "ts-node src/index.ts",
+    "process-sboms": "ts-node src/main.ts",
+    "fetch-sboms": "ts-node src/fetch/index.ts",
+    "generate-excel": "ts-node src/excel/index.ts",
     "clean": "rm -rf sboms/* output/*"
-  },
+}
+,
   "keywords": [],
   "author": "",
   "license": "ISC",
