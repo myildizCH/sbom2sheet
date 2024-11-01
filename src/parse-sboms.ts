@@ -28,11 +28,18 @@ export async function parseSBOMs(folderPath: string): Promise<SBOMEntry[]> {
             console.log(`Found ${packages.length} packages in ${filePath}`);
 
             for (const pkg of packages) {
+                const license = 
+                    pkg.licenseDeclared && pkg.licenseDeclared !== "NOASSERTION"
+                        ? pkg.licenseDeclared
+                        : pkg.licenseConcluded && pkg.licenseConcluded !== "NOASSERTION"
+                        ? pkg.licenseConcluded
+                        : "";
+
                 dataRows.push({
                     repository: repoName,
                     package: pkg.name || '',
                     version: pkg.versionInfo || '',
-                    license: pkg.licenseDeclared !== 'NOASSERTION' ? pkg.licenseDeclared : '', // Replace NOASSERTION with empty string
+                    license: license,
                 });
             }
         }
