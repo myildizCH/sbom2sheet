@@ -28,7 +28,7 @@ GITHUB_ORGANIZATION_NAME=your_github-org_name_here
 - Download SBOM files and generate Excel file out of it:
 Parse the SBOMs and create an Excel file:
 ```bash
-npm run create-excel
+npm run process-sboms
 ```
 
 Note: The command above is enough to do the complete work of downloading SBOMs and generating excel file, the following commands are only to add additional capabilities.
@@ -39,38 +39,32 @@ Run the command to fetch SBOMs from your specified repositories:
 npm run fetch-sboms
 ```
 
+- Generate excel sheet out of downloaded SBOMs
+```bash 
+npm run generate-excel
+```
 
 - Clean up SBOM and output directories:
-Once done, clear the directories:
 
 ```bash
 npm run clean
 ```
 
-- Scripts
-
-```bash
-# Downloads SBOM files from GitHub.
-npm run fetch-sboms
-
-# Generates an Excel file from the downloaded SBOMs.
-npm run create-excel
-
-# Deletes the contents of sboms/ and output/ folders.
-npm run clean
-```
 ## Project Structure
 
 ```plaintext
-.
-├── src/
-│   ├── index.ts              # Main script for creating Excel from SBOMs
-│   ├── fetch-sboms.ts        # Handles SBOM fetching from GitHub
-│   ├── parse-sboms.ts        # Parses SBOM files
-│   ├── create-excel.ts       # Generates Excel file from parsed data
-├── sboms/                    # SBOM files are saved here
-├── output/                   # Generated Excel file is saved here
-└── .env                      # Environment variables are stored here
+src/
+├── fetch/                # Module for fetching SBOM data
+│   ├── fetch-sboms.ts    # Functions to fetch repositories and save SBOMs
+│   └── index.ts          # Entry point for fetching
+├── parse/                # Module for parsing SBOM data
+│   ├── parse-sboms.ts    # Functions to parse SBOM files
+│   └── index.ts          # Entry point for parsing
+├── excel/                # Module for creating Excel files
+│   ├── create-excel.ts   # Function to generate Excel from parsed data
+│   └── index.ts          # Entry point for Excel generation
+├── config.ts             # Configuration for paths and environment variables
+└── main.ts               # Main coordination file
 ```
 ## Requirements
 
