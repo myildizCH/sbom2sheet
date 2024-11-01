@@ -8,7 +8,9 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const sbomFolder = path.resolve(__dirname, "../sboms");
-const outputFilePath = path.resolve(__dirname, "../output/combined_sbom.xlsx");
+const outputFolder = path.resolve(__dirname, "../output");  
+const outputFilePath = path.join(outputFolder, "combined_sbom.xlsx");
+
 
 async function main() {
     const { Octokit } = await import("@octokit/rest");
@@ -17,6 +19,10 @@ async function main() {
 
     try {
         console.log("Starting SBOM processing...");
+
+         // Ensure the sboms folder exists
+        await fs.ensureDir(sbomFolder);
+        await fs.ensureDir(outputFolder);
 
         // Clear the sboms folder before downloading new files
         await fs.emptyDir(sbomFolder);
