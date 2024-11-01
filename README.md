@@ -10,18 +10,13 @@ This project fetches Software Bill of Materials (SBOM) files from GitHub reposit
 
 ## Setup
 
-1. **Clone the repository**:
-```bash
-git clone <repository-url>
-cd sbom2sheet
-```
-2. **Install dependencies**:
+1. **Install dependencies**:
 
 ```bash
 npm install
 ```
 
-3. ***Environment setup***:
+2. ***Environment setup***:
 
 Create a `.env` file in the root with your GitHub token:
 ```plaintext
@@ -30,16 +25,20 @@ GITHUB_ORGANIZATION_NAME=your_github-org_name_here
 ```
 ## Usage
 
--  Download SBOM files:
-Run the command to fetch SBOMs from your specified repositories:
-```bash
-npm run fetch-sboms
-```
-- Generate Excel file:
+- Download SBOM files and generate Excel file out of it:
 Parse the SBOMs and create an Excel file:
 ```bash
 npm run create-excel
 ```
+
+Note: The command above is enough to do the complete work of downloading SBOMs and generating excel file, the following commands are only to add additional capabilities.
+
+-  Download SBOM files only:
+Run the command to fetch SBOMs from your specified repositories:
+```bash
+npm run fetch-sboms
+```
+
 
 - Clean up SBOM and output directories:
 Once done, clear the directories:
