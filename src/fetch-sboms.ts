@@ -42,7 +42,7 @@ export async function fetchAllRepositories(octokit: any) {
       query: `
         query ($orgName: String!, $afterCursor: String) {
           organization(login: $orgName) {
-            repositories(first: 100, after: $afterCursor, privacy: PUBLIC, isArchived: false) {
+            repositories(first: 100, after: $afterCursor, isArchived: false) {
               edges {
                 node {
                   name
