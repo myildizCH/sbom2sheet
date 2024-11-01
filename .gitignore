@@ -2,10 +2,10 @@ node_modules/
 .DS_Store
 Thumbs.db
 
-src/sboms/*
+sboms/*
 output/*
 
-!src/sboms/.gitkeep
+!sboms/.gitkeep
 !output/.gitkeep
 
 .env
