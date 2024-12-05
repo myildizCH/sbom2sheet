@@ -16,7 +16,7 @@ This project fetches Software Bill of Materials (SBOM) files from GitHub reposit
 npm install
 ```
 
-2. ***Environment setup***:
+2. **Environment setup**:
 
 Create a `.env` file in the root with your GitHub token:
 ```plaintext
