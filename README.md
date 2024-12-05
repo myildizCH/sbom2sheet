@@ -26,7 +26,6 @@ GITHUB_ORGANIZATION_NAME=your_github-org_name_here
 ## Usage
 
 - Download SBOM files and generate Excel file out of it:
-Parse the SBOMs and create an Excel file:
 ```bash
 npm run process-sboms
 ```
@@ -34,7 +33,6 @@ npm run process-sboms
 Note: The command above is enough to do the complete work of downloading SBOMs and generating excel file, the following commands are only to add additional capabilities.
 
 -  Download SBOM files only:
-Run the command to fetch SBOMs from your specified repositories:
 ```bash
 npm run fetch-sboms
 ```
@@ -45,7 +43,6 @@ npm run generate-excel
 ```
 
 - Clean up SBOM and output directories:
-
 ```bash
 npm run clean
 ```
